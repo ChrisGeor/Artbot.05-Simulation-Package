@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<launch>
+
+
+ <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+ <rosparam file="$(find car_model_description)/params/costmap_common_params.yaml" command="load" ns="global_costmap"  />
+ <rosparam file="$(find car_model_description)/params/costmap_common_params.yaml" command="load" ns="local_costmap" />
+ <rosparam file="$(find car_model_description)/params/local_costmap_params.yaml" command="load" />
+ <rosparam file="$(find car_model_description)/params/global_costmap_params.yaml" command="load" />
+ <rosparam file="$(find car_model_description)/params/base_local_planner_params.yaml" command="load" />
+ 
+ <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+ <param name="controller_frequency" value="10.0" /> 
+ 
+ </node>
+ 
+
+</launch>

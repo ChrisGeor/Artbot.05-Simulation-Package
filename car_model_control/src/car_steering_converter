@@ -1,0 +1,42 @@
+#!/usr/bin/env python
+import mpmath
+import rospy
+from std_msgs.msg import Float64
+from geometry_msgs.msg import Twist
+from sensor_msgs.msg import JointState
+
+def callback(msg):
+    right_actuator = rospy.Publisher('/car_model/front_right_wheel_joint_position_controller/command', Float64, queue_size=100)
+    theta = msg.position[5]
+    right_pub= mpmath.acot(mpmath.cot(theta)- 0.25)
+    right_actuator.publish(right_pub)
+
+    left_actuator = rospy.Publisher('/car_model/front_left_wheel_joint_position_controller/command', Float64, queue_size=100)
+
+    left_pub= mpmath.acot(mpmath.cot(theta)+ 0.25)
+    left_actuator.publish(left_pub)
+
+
+    ex=msg.velocity[2]
+    rear_left_wheel_actuator = rospy.Publisher('/car_model/rear_left_wheel_joint_velocity_controller/command', Float64, queue_size=100)
+    left_pub_rear = ex/2
+    rear_left_wheel_actuator.publish(left_pub_rear)
+
+
+    rear_right_wheel_actuator = rospy.Publisher('/car_model/rear_right_wheel_joint_velocity_controller/command', Float64, queue_size=100)
+    right_pub_rear = ex/2
+    rear_right_wheel_actuator.publish(right_pub_rear)
+
+
+
+def data_provider():
+    rospy.init_node('joint_states_listener', anonymous=True)
+
+    rospy.Subscriber("/car_model/joint_states", JointState , callback)
+    rospy.spin()
+
+if __name__ == '__main__':
+    try:
+        data_provider()
+    except rospy.ROSInterruptException:
+        pass

@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+import rospy
+from std_msgs.msg import String
+from geometry_msgs.msg import Twist
+
+def callback(msg):
+    actuator = rospy.Publisher('car_model/mobile_base_controller/cmd_vel', Twist, queue_size=100)
+    #rospy.loginfo(msg.linear.x, msg.angular.z)
+    ex= msg.linear.x
+    zet=msg.angular.z
+    pub=Twist()
+    pub.linear.x=ex
+    pub.angular.z=zet
+    actuator.publish(pub)
+
+def data_provider():
+    rospy.init_node('cmd_vel_listener', anonymous=True)
+
+    rospy.Subscriber("cmd_vel", Twist, callback)
+    rospy.spin()
+
+if __name__ == '__main__':
+    try:
+        data_provider()
+    except rospy.ROSInterruptException:
+        pass

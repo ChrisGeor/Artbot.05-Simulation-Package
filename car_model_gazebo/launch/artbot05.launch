@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<launch>
+  
+ <include file="$(find car_model_gazebo)/launch/configuration.launch"/>
+ <include file="$(find car_model_control)/launch/move_base.launch"/>
+ <include file="$(find car_model_control)/launch/gmapping.launch"/>
+ <include file="$(find car_model_control)/launch/motion.launch"/>
+  
+</launch>
