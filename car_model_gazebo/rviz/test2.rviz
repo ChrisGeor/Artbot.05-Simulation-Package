@@ -3,7 +3,8 @@ Panels:
     Help Height: 78
     Name: Displays
     Property Tree Widget:
-      Expanded: ~
+      Expanded:
+        - /Global Options1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz/Selection
@@ -108,27 +109,28 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
+        base_footprint:
+          base_link:
+            hokuyo_link:
+              {}
+            left_rear_wheel:
+              {}
+            left_steer:
+              left_front_wheel:
+                {}
+            rear_wheel:
+              {}
+            right_rear_wheel:
+              {}
+            right_steer:
+              right_front_wheel:
+                {}
+            steer_link:
+              {}
         map:
           {}
         odom:
-          base_footprint:
-            base_link:
-              hokuyo_link:
-                {}
-              left_rear_wheel:
-                {}
-              left_steer:
-                left_front_wheel:
-                  {}
-              rear_wheel:
-                {}
-              right_rear_wheel:
-                {}
-              right_steer:
-                right_front_wheel:
-                  {}
-              steer_link:
-                {}
+          {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -335,7 +337,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: odom
+    Fixed Frame: hokuyo_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -359,7 +361,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 11.014866828918457
+      Distance: 9.543006896972656
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -367,17 +369,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.4211602210998535
-        Y: 1.4291859865188599
-        Z: 9.540950486552902e-06
+        X: -2.726884365081787
+        Y: 2.833850145339966
+        Z: 1.0256206223857589e-05
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.760398268699646
+      Pitch: 0.8803982734680176
       Target Frame: <Fixed Frame>
-      Yaw: 2.4585633277893066
+      Yaw: 2.208552360534668
     Saved: ~
 Window Geometry:
   Displays:
@@ -395,5 +397,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 121
-  Y: 27
+  X: 261
+  Y: 85

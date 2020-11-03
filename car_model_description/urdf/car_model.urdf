@@ -46,24 +46,24 @@
   <link name="base_link">
 
     <inertial>
-      <origin xyz="0 0 0"/>
+      <origin xyz="1.2 0 0"/>
       <mass value="212"/>
       <inertia ixx="1.4133" ixy="0.0" ixz="0.0" iyy="159.7" iyz="0.0" izz="159.7"/>
     </inertial>
 
     <visual>
       <geometry>
-        <box size="2.4 1.2 0.2"/>
+        <box size="1.8 1.2 0.2"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0.9 0 0"/>
       <material name="yellow"/>
     </visual>
 
     <collision>
       <geometry>
-        <box size="2.4 1.2 0.2"/>
+        <box size="1.8 1.2 0.2"/>
       </geometry>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0.9 0 0"/>
     </collision>
 
   </link>
@@ -75,7 +75,7 @@
   <joint name="right_rear_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="right_rear_wheel"/>
-    <origin xyz="-1.1 0.8 -0.3" rpy="0 0 0"/>
+    <origin xyz="0 0.7 -0.3" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
   </joint>
 
@@ -108,7 +108,7 @@
   <joint name="left_rear_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="left_rear_wheel"/>
-    <origin xyz="-1.1 -0.8 -0.3" rpy="0 0 0"/>
+    <origin xyz="0 -0.7 -0.3" rpy="0 0 0"/>
     <axis xyz="0 1 0"/>
   </joint>
 
@@ -179,7 +179,7 @@
   <joint name="right_steer_joint" type="revolute">
     <parent link="base_link"/>
     <child link="right_steer"/>
-    <origin xyz="1.2 0.8 -0.25" rpy="0 0 0"/>
+    <origin xyz="1.8 0.5 -0.25" rpy="0 0 0"/>
     <limit effort="10" velocity="3" upper="0.69" lower="-0.5"/>
     <axis xyz="0 0 1"/>
   </joint>
@@ -243,7 +243,7 @@
 <joint name="left_steer_joint" type="revolute">
     <parent link="base_link"/>
     <child link="left_steer"/>
-    <origin xyz="1.2 -0.8 -0.25" rpy="0 0 0"/>
+    <origin xyz="1.8 -0.5 -0.25" rpy="0 0 0"/>
     <limit effort="10" velocity="3" upper="0.5" lower="-0.69"/>
     <axis xyz="0 0 1"/>
   </joint>
@@ -299,7 +299,7 @@
   <joint name="left_front_wheel_joint" type="continuous">
     <parent link="left_steer"/>
     <child link="left_front_wheel"/>
-    <origin xyz="0 0.1 -0.1" rpy="0 0 0"/>
+    <origin xyz="0 -0.1 -0.1" rpy="0 0 0"/>
     <limit effort="10" velocity="3"/>
     <axis xyz="0 1 0"/>
   </joint>
@@ -359,7 +359,7 @@
     </visual>
   </link>
   <joint name="hokuyo_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="1.5 0 -0.5"/>
+    <origin rpy="0 0 0" xyz="2.1 0 -0.5"/>
     <parent link="base_link"/>
     <child link="hokuyo_link"/>
   </joint>
@@ -396,7 +396,7 @@
  <joint name="steer_joint" type="revolute">
     <parent link="base_link"/>
     <child link="steer_link"/>
-    <origin xyz="1.2 0 -0.25" rpy="0 0 0"/>
+    <origin xyz="1.8 0 -0.25" rpy="0 0 0"/>
     <limit effort="10" velocity="3" upper="1" lower="-1"/>
     <axis xyz="0 0 1"/>
   </joint>
@@ -428,7 +428,7 @@
 <joint name="rear_wheel_joint" type="continuous">
     <parent link="base_link"/>
     <child link="rear_wheel"/>
-    <origin xyz="-1.2 0 -0.25" rpy="0 0 0"/>
+    <origin xyz="0 0 -0.25" rpy="0 0 0"/>
     <limit effort="10" velocity="3" upper="1" lower="-1"/>
     <axis xyz="0 1 0"/>
   </joint>
@@ -480,65 +480,4 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <!--link name="laser">
-	<visual>
-      	  <geometry>
-        <box size="0.15 0.15 0.15"/>
-      </geometry>
-      <origin xyz="0 0 0" rpy="1.57 0 0"/>
-      <material name="black"/>
-      </visual>
-        <sensor type="gpu_ray" name="head_hokuyo_sensor">
-          <pose>1 0 0.025 0 0 0</pose>
-          <visualize>true</visualize>
-          <update_rate>40</update_rate>
-          <ray>
-            <scan>
-              <horizontal>
-                <samples>400</samples>
-                <resolution>1</resolution>
-                <min_angle>-1.570796</min_angle>
-                <max_angle>1.570796</max_angle>
-              </horizontal>
-            </scan>
-            <range>
-              <min>0.1</min>
-              <max>6</max>
-              <resolution>0.01</resolution>
-            </range>
-          </ray>
-          <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_laser.so">
-            <topicName>/scan</topicName>
-           </plugin>
-        </sensor>
-      </link>
-
-	<joint name="laser_joint" type="fixed">
-	    <parent link="base_link"/>
-	    <child link="laser"/>
-	    <origin xyz="1.2 0 0.25" rpy="0 0 0"/>
-	  </joint-->
-  <!--gazebo>
-    <plugin name="ackermann_steering_controller" filename="libackermann_steering_controller.so">
-      <rosDebugLevel>Debug</rosDebugLevel>
-      <publishWheelTF>false</publishWheelTF>
-      <publishTf>1</publishTf>
-      <publishWheelJointState>false</publishWheelJointState>
-      <alwaysOn>true</alwaysOn>
-      <updateRate>100.0</updateRate>
-      <fronSteer>front_steer_joint</frontSteer>
-      <rearWheel>rear_wheel_joint</rearWheel>
-      <broadcastTF>1</broadcastTF>
-      <base_linkmandTopic>cmd_vel</base_linkmandTopic>
-      <odometryFrame>odom</odometryFrame>
-      <odometryTopic>odom</odometryTopic>
-      <robotBaseFrame>base_link</robotBaseFrame>
-
-
-    </plugin>
-  </gazebo-->
-
-
-
-
-</robot>
+  </robot>

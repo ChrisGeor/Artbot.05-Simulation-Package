@@ -18,7 +18,7 @@ def odom_cb(data):
 
 rospy.init_node('path_node')
 
-odom_sub = rospy.Subscriber('/odom', Odometry, odom_cb)
+odom_sub = rospy.Subscriber('car_model/mobile_base_controller/odom', Odometry, odom_cb)
 path_pub = rospy.Publisher('/path', Path, queue_size=100)
 
 if __name__ == '__main__':

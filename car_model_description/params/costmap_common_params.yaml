@@ -1,6 +1,6 @@
 
 #footprint: [[-0.2,-0.2],[-0.2,0.2], [0.2, 0.2], [0.2,-0.2]]
-robot_radius: 1
+robot_radius: 0.5
 inflation_radius: 2
 
 

@@ -39,30 +39,29 @@ def callback(SensorData):
 				counter2=counter2+1
 		if (counter1>counter2):	
 			client.cancel_all_goals()
-			goal_pose.target_pose.pose.position.x = 2
-			goal_pose.target_pose.pose.position.y = 0.5
+			goal_pose.target_pose.pose.position.x = 1.8
+			goal_pose.target_pose.pose.position.y = 0.3
 			goal_pose.target_pose.pose.position.z = 0
 			client.send_goal(goal_pose)
 		elif (counter1<counter2):
 			client.cancel_all_goals()
-			goal_pose.target_pose.pose.position.x = 2
-			goal_pose.target_pose.pose.position.y = -0.5
+			goal_pose.target_pose.pose.position.x = 1.8
+			goal_pose.target_pose.pose.position.y = -0.3
 			goal_pose.target_pose.pose.position.z = 0
 			client.send_goal(goal_pose)
 		else:
 			client.cancel_all_goals()
-			goal_pose.target_pose.pose.position.x = 1
+			goal_pose.target_pose.pose.position.x = 1.8
 			goal_pose.target_pose.pose.position.y = 0
 			goal_pose.target_pose.pose.position.z = 0
 			client.send_goal(goal_pose)
 	else:	
 		client.cancel_all_goals()	
-		goal_pose.target_pose.pose.position.x = 1
+		goal_pose.target_pose.pose.position.x = 1.8
 		goal_pose.target_pose.pose.position.y = 0
 		goal_pose.target_pose.pose.position.z = 0
 		client.send_goal(goal_pose)
 			
-	
 	
 if __name__ == '__main__':
 	rospy.sleep(10.)

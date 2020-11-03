@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <launch>
- <node pkg="car_model_control" name="pubish_points4" type="publish_points4.py" output="screen"/>
+ <node pkg="car_model_control" name="publish_points" type="publish_points4.py" output="screen"/>
  
  <node pkg="car_model_control" name="path_maker" type="path_maker.py" output="screen"/>
 </launch>
