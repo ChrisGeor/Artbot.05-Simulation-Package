@@ -16,18 +16,18 @@ car_model:
     # These are both optional.
     # ackermann_steering_controller will attempt to read either one or both from the
     # URDF if not specified as a parameter.
-    wheel_separation_h : 1.0
-    wheel_radius : 0.12
+    wheel_separation_h : 1.8
+    wheel_radius : 0.2
 
     # Wheel separation and radius multipliers for odometry calibration.
     wheel_separation_h_multiplier: 1.0 # default: 1.0
     wheel_radius_multiplier    : 1.0 # default: 1.0
 
     # Steer position angle multipliers for fine tuning.
-    steer_pos_multiplier       : 0.5
+    steer_pos_multiplier       : 1.2
 
     # Velocity commands timeout [s], default 0.5
-    cmd_vel_timeout: 0.25
+    cmd_vel_timeout: 5
 
     # Base frame_id
     base_frame_id: base_footprint   #default: base_link

@@ -19,12 +19,12 @@ def callback(SensorData):
 	counter=0
 	client.wait_for_server()
 	goal_pose = MoveBaseGoal()
-	goal_pose.target_pose.header.frame_id = 'base_footprint'
+	goal_pose.target_pose.header.frame_id = 'hokuyo_link'
 	goal_pose.target_pose.pose.orientation.x = 0
 	goal_pose.target_pose.pose.orientation.y = 0
 	goal_pose.target_pose.pose.orientation.z = 0
 	goal_pose.target_pose.pose.orientation.w = 1
-	for m in range (175,225):
+	for m in range (170,230):
 		if(SensorData.ranges[m]<5):
 			flag = True
 			break
@@ -40,13 +40,13 @@ def callback(SensorData):
 		if (counter1>counter2):	
 			client.cancel_all_goals()
 			goal_pose.target_pose.pose.position.x = 1.8
-			goal_pose.target_pose.pose.position.y = 0.3
+			goal_pose.target_pose.pose.position.y = 0.6
 			goal_pose.target_pose.pose.position.z = 0
 			client.send_goal(goal_pose)
 		elif (counter1<counter2):
 			client.cancel_all_goals()
 			goal_pose.target_pose.pose.position.x = 1.8
-			goal_pose.target_pose.pose.position.y = -0.3
+			goal_pose.target_pose.pose.position.y = -0.6
 			goal_pose.target_pose.pose.position.z = 0
 			client.send_goal(goal_pose)
 		else:

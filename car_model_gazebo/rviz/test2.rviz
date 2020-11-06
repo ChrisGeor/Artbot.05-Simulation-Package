@@ -337,7 +337,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: hokuyo_link
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -361,7 +361,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/XYOrbit
-      Distance: 9.543006896972656
+      Distance: 11.938366889953613
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -369,17 +369,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -2.726884365081787
-        Y: 2.833850145339966
+        X: 1.6070482730865479
+        Y: 2.72072172164917
         Z: 1.0256206223857589e-05
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8803982734680176
+      Pitch: 0.9453981518745422
       Target Frame: <Fixed Frame>
-      Yaw: 2.208552360534668
+      Yaw: 2.163555860519409
     Saved: ~
 Window Geometry:
   Displays:
@@ -397,5 +397,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1200
-  X: 261
-  Y: 85
+  X: 555
+  Y: 120

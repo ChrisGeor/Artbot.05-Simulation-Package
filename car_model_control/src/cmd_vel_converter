@@ -6,7 +6,7 @@ from geometry_msgs.msg import Twist
 def callback(msg):
     actuator = rospy.Publisher('car_model/mobile_base_controller/cmd_vel', Twist, queue_size=100)
     #rospy.loginfo(msg.linear.x, msg.angular.z)
-    ex= msg.linear.x
+    ex= (msg.linear.x)
     zet=msg.angular.z
     pub=Twist()
     pub.linear.x=ex
