@@ -1,0 +1,24 @@
+<?xml version="1.0"?> 
+<sdf version="1.4">
+<model name="cone_orange">
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>/home/christos/.gazebo/models/orange_cone/orange_cone.dae</uri>
+              <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>/home/christos/.gazebo/models/orange_cone/orange_cone.dae</uri>
+            <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+  </model>
+</sdf>
+
